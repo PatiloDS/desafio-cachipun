@@ -1,13 +1,23 @@
 #Patricio Carrasco
-import random , sys
+iimport random
+import sys
 
-opciones = ["piedra", "papel", "tijera"]
-opcion_comp = random.choice[opciones]
-opcion_usr = sys.argv[1]
+usuario = sys.argv[1].lower() #funcion para minusculas
+opciones = ['piedra', 'papel', 'tijera'] #Definimos los posibles valores a elegir
+entra_al_juego = usuario in opciones 
+computador =  random.choice(opciones) 
 
-if opcion_comp == opcion_usr:
-    print(f" tu opcion fue: {opcion_usr} y el compu: {opcion_comp}, EMPATARON ")
-elif (opcion_comp == "piedra" and opcion_usr =="tijera") or (opcion_comp == "papel" and opcion_usr == "piedra") or (opcion_comp=="tijera" and opcion_usr"papel"):
-    print(f"gano el computador con {opcion_comp} y tu con {opcion_usr}")
-else: 
-    print("gano el usuario con {opcion_usr} y computador con {opcion_comp}")
+print('-'*60)
+
+if entra_al_juego == False:
+   print('Argumento inválido: Debe ser piedra, papel o tijera.')
+#En caso contrario, la opcion ingresada es correcta
+#Usuario Empata:
+elif usuario == computador:
+   print(f'Tu jugaste {usuario} \nComputador jugó {computador} \nEmpate!!')
+#Usuario gana:
+elif (usuario == 'piedra' and computador == 'tijera') or (usuario == 'papel' and computador == 'piedra') or (usuario == 'tijera' and computador == 'papel'):
+   print(f'Tu jugaste {usuario} \nComputador jugó {computador} \nGanaste!!')
+#Usuario Pierde:
+else: print(f'Tu jugaste {usuario} \nComputador jugó {computador} \nPerdiste!!')
+print('-'*60)
